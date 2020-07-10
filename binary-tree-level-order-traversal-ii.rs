@@ -26,12 +26,12 @@ struct Pair {
 }
 
 fn enq(cur: &Pair, q: &mut VecDeque<Pair>) {
-    if let Some(left) = &(*cur).first.borrow().left {
-        q.push_back(Pair{first: left.clone(), second: (*cur).second + 1});
+    if let Some(left) = &cur.first.borrow().left {
+        q.push_back(Pair{first: left.clone(), second: cur.second + 1});
     }
     
-    if let Some(right) = &(*cur).first.borrow().right {
-        q.push_back(Pair{first: right.clone(), second: (*cur).second + 1});
+    if let Some(right) = &cur.first.borrow().right {
+        q.push_back(Pair{first: right.clone(), second: cur.second + 1});
     }
 }
 
